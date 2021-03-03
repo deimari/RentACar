@@ -15,7 +15,7 @@ namespace ConsoleUI
             Car car = new Car
             {
                 Id = 2,
-                Name = "Serce",
+                Name = "S",
                 BrandId = 1,
                 ColorId = 1,
                 DailyPrice = 100,
@@ -28,9 +28,17 @@ namespace ConsoleUI
             brandManager.Add(brand);
             colorManager.Add(color);
             Console.WriteLine("================");
-            foreach (var item in carManager.GetCarDetails())
+            var result = carManager.GetCarDetails();
+            if (result.Success)
             {
-                Console.WriteLine("{0} / {1} / {2} / {3} / {4}", item.CarId, item.CarName, item.BrandName, item.ModelYear, item.ColorName);
+                foreach (var item in result.Data)
+                {
+                    Console.WriteLine("{0} / {1} / {2} / {3} / {4}", item.CarId, item.CarName, item.BrandName, item.ModelYear, item.ColorName);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
             }
         }
     }
