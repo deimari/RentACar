@@ -12,6 +12,7 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             Car car = new Car
             {
                 Id = 2,
@@ -24,9 +25,9 @@ namespace ConsoleUI
             };
             Brand brand = new Brand { BrandId = 1, BrandName = "BMW" };
             Color color = new Color { ColorId = 1, ColorName = "Black" };
+            Customer customer = new Customer { UserId = 1, CompanyName = "ASDASD" };
             carManager.Add(car);
-            brandManager.Add(brand);
-            colorManager.Add(color);
+            customerManager.Add(customer);
             Console.WriteLine("================");
             var result = carManager.GetCarDetails();
             if (result.Success)
