@@ -15,4 +15,4 @@ namespace Business.Abstract
         IDataResult<Rental> GetById(int id);
     }
 }
-}
+
