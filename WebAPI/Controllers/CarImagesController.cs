@@ -36,13 +36,5 @@ namespace WebAPI.Controllers
                 return Ok(result.Data);
             return BadRequest(result.Message);
         }
-
-        public IActionResult Add(CarImage carImage)
-        {
-            var result = _carImageService.Add(carImage);
-            if (result.Success)
-                return Ok(result.Message);
-            return BadRequest(result.Message);
-        }
     }
 }
