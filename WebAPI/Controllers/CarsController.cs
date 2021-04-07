@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,6 +21,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getall")]
+        [Authorize(Roles = "Product.List")]
         public IActionResult GetAll()
         {
             var result = _carService.GetAll();
@@ -27,6 +29,7 @@ namespace WebAPI.Controllers
                 return Ok(result.Data);
             return BadRequest(result.Message);
         }
+
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
@@ -35,6 +38,7 @@ namespace WebAPI.Controllers
                 return Ok(result.Data);
             return BadRequest(result.Message);
         }
+
         [HttpPost("add")]
         public IActionResult Add(Car car)
         {
