@@ -28,7 +28,8 @@ namespace Business.Concrete
 
         public IDataResult<List<CarRentalDetailDto>> GetRentalDetails()
         {
-            return new SuccessDataResult<List<CarRentalDetailDto>>(_rentalDal.GetCarRentalDetails());
+            var result = new SuccessDataResult<List<CarRentalDetailDto>>(_rentalDal.GetCarRentalDetails());
+            return result;
         }
 
         public IResult Delete(Rental rental)

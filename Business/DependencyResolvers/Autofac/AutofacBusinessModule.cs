@@ -31,6 +31,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfColorDal>().As<IColorDal>().SingleInstance();
             builder.RegisterType<EfCustomerDal>().As<ICustomerDal>().SingleInstance();
             builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
+            builder.RegisterType<EfRentalDal>().As<IRentalDal>().SingleInstance();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
