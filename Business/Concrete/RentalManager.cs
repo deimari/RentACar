@@ -2,6 +2,7 @@
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,6 +24,11 @@ namespace Business.Concrete
                 return new SuccessResult();
             }
             return new ErrorResult();
+        }
+
+        public IDataResult<List<CarRentalDetailDto>> GetRentalDetails()
+        {
+            return new SuccessDataResult<List<CarRentalDetailDto>>(_rentalDal.GetCarRentalDetails());
         }
 
         public IResult Delete(Rental rental)
